@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0b">
+<title>留白 · 一个允许你什么都不做的地方</title>
+<meta name="description" content="留白是一个发呆空间。十二个安静的小场景，帮你暂时离开焦虑与忙碌，让大脑空一会儿。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0a0b'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='%23d9c8a8' stroke-width='1.2'/%3E%3Ccircle cx='47' cy='27' r='3' fill='%23d9c8a8'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<button class="sound" id="soundBtn" type="button" aria-pressed="true" aria-label="关闭声音">
+  <span class="sound__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+  <span class="sound__txt">声音</span>
+</button>
+
+<header class="hero">
+  <div class="hero__orbit" aria-hidden="true">
+    <span></span><span></span><span></span><i></i>
+  </div>
+
+  <div class="hero__top">
+    <span class="mark">留白 · LIUBAI</span>
+    <span class="mark mark--right">十二个角落</span>
+  </div>
+
+  <div class="hero__main">
+    <p class="eyebrow">A PLACE TO DO NOTHING</p>
+    <h1 class="title">留白</h1>
+    <div class="hero__foot">
+      <p class="lede">什么都不做，也是一种正经事。<br>十二个安静的角落，让大脑空一会儿。</p>
+      <a class="cue" href="#rooms"><span class="cue__line"></span>开始发呆</a>
+    </div>
+  </div>
+</header>
+
+<main class="rooms" id="rooms">
+  <header class="rooms__head">
+    <div>
+      <p class="eyebrow">THE ROOMS</p>
+      <h2>挑一个，坐下来</h2>
+    </div>
+    <button class="random" id="random" type="button">随便来一个 <span aria-hidden="true">✦</span></button>
+  </header>
+
+  <div class="grid" id="grid"></div>
+
+  <p class="rooms__note">不需要做完。中途走神，就是成功。</p>
+</main>
+
+<footer class="foot">
+  <span>留白 · 允许自己什么都不做</span>
+  <span>建议停留 1–5 分钟</span>
+</footer>
+
+<div class="scene" id="scene" role="dialog" aria-modal="true" aria-label="发呆场景" aria-hidden="true">
+  <canvas id="stage"></canvas>
+  <div class="scene__ui">
+    <div class="scene__top">
+      <button class="pill" id="back" type="button"><span aria-hidden="true">←</span> 返回</button>
+      <div class="scene__label"><span id="sceneNum">01 / 12</span><span id="sceneName">悬浮球</span></div>
+      <button class="pill" id="randomScene" type="button">换一个 <span aria-hidden="true">✦</span></button>
+    </div>
+
+    <div class="scene__bottom">
+      <p class="hint" id="hint"></p>
+      <div class="dots" id="dots"></div>
+    </div>
+
+    <button class="nav nav--prev" id="prev" type="button" aria-label="上一个场景">←</button>
+    <button class="nav nav--next" id="next" type="button" aria-label="下一个场景">→</button>
+  </div>
+</div>
+
+<script src="audio.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
