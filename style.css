@@ -151,25 +151,58 @@ a{ color: inherit; text-decoration: none; }
 }
 
 .cue{
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
+  gap: 16px;
   flex-shrink: 0;
-  margin: -12px 0;
-  padding: 12px 0 18px;
-  font-size: 11px;
-  letter-spacing: .28em;
-  color: var(--ink-dim);
-  transition: color .4s var(--ease);
+  min-width: 240px;
+  min-height: 58px;
+  padding: 0 38px;
+  border: 1px solid rgba(205, 176, 138, .46);
+  border-radius: 999px;
+  background:
+    radial-gradient(130% 180% at 50% 0%, rgba(205, 176, 138, .18), transparent 72%),
+    rgba(205, 176, 138, .06);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, .22),
+    0 14px 44px -20px rgba(205, 176, 138, .6);
+  font-family: var(--serif);
+  font-size: clamp(14px, 1.2vw, 16px);
+  letter-spacing: .24em;
+  color: var(--ink);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    color .4s var(--ease),
+    border-color .4s var(--ease),
+    background-color .4s var(--ease),
+    box-shadow .4s var(--ease),
+    transform .25s var(--ease);
 }
 
-.cue:hover{ color: var(--ink); }
+.cue:hover{
+  color: #fffaf0;
+  border-color: rgba(205, 176, 138, .82);
+  background-color: rgba(205, 176, 138, .12);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, .22),
+    0 18px 52px -18px rgba(205, 176, 138, .78);
+}
+
+.cue:active{ transform: scale(.985); }
+
+.cue:focus-visible{
+  outline: 1px solid var(--accent);
+  outline-offset: 4px;
+}
 
 .cue__line{
   display: block;
-  width: 42px;
+  width: 34px;
   height: 1px;
-  background: currentColor;
+  background: var(--accent);
   transform-origin: left;
   animation: cue 2.8s var(--ease) infinite;
 }
@@ -1010,9 +1043,15 @@ a{ color: inherit; text-decoration: none; }
 @media (max-width: 720px){
   .hero__orbit{ right: -46vmin; opacity: .7; }
   .hero__foot{ flex-direction: column; align-items: flex-start; gap: 20px; }
+  .cue{ align-self: stretch; min-width: 0; max-width: min(340px, calc(100% - 68px)); min-height: 60px; padding: 0 28px; }
   .rooms__head{ align-items: flex-start; flex-direction: column; }
   .random{ align-self: flex-start; }
   .foot{ flex-direction: column; gap: 8px; }
+}
+
+@media (min-width: 721px) and (max-width: 1024px){
+  .hero__foot{ flex-direction: column; align-items: flex-start; gap: 26px; }
+  .cue{ align-self: flex-start; }
 }
 
 @media (max-width: 560px){
